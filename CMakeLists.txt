@@ -33,6 +33,7 @@ target_link_libraries(${PROJECT_NAME} ${EXTRA_LIBS})
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 
+
 # This one is the most important, and it will determine the install application's name
 set(CPACK_PACKAGE_INSTALL_DIRECTORY  ${PROJECT_NAME})
 set(EXE_TARGET_NAME ${CMAKE_SOURCE_DIR}/bin/LearnCPack.exe)
@@ -48,12 +49,15 @@ set (CPACK_NSIS_MUI_UNIICON "${CMAKE_SOURCE_DIR}/res/LearnCPack.ico")
 set (CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/res\\LearnCPack.bmp")
 # License text
 set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/res/Copyright.txt")
-# set (CPACK_NSIS_MODIFY_PATH "ON")
 #add/remove programs icon using an installed executat
 set (CPACK_NSIS_INSTALLED_ICON_NAME "${EXE_TARGET_NAME}")
-# create desktop ico
+# create desktop shortcut
 set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "
     CreateShortCut \\\"$DESKTOP\\\\${EWS_APP_NAME}.lnk\\\" \\\"$INSTDIR\\\\bin\\\\${EWS_APP_NAME}\\\"
+")
+
+set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS "
+    Delete \\\"$DESKTOP\\\\${EWS_APP_NAME}.lnk\\\"
 ")
 
 include(CPack)
