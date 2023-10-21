@@ -44,8 +44,8 @@ set(CPACK_PACKAGE_EXECUTABLES "${EWS_APP_NAME}" "${EWS_APP_NAME}")
 set (CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/res/LearnCPack.ico")
 # uninstall ico
 set (CPACK_NSIS_MUI_UNIICON "${CMAKE_SOURCE_DIR}/res/LearnCPack.ico")
-# License ico
-set (CPACK_PACKAGE_ICO "${CMAKE_SOURCE_DIR}/res/LearnCPack.bmp")
+# License ico, \\ is necessary, otherwise compiler will complain
+set (CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/res\\LearnCPack.bmp")
 # License text
 set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/res/Copyright.txt")
 # set (CPACK_NSIS_MODIFY_PATH "ON")
