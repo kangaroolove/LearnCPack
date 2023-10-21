@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(LearnCPack VERSION 0.1 LANGUAGES CXX)
+project(LearnCPack VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -32,4 +32,16 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} ${EXTRA_LIBS})
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
+
+# install ico
+set (CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/res/LearnCPack.ico")
+# uninstall ico
+set (CPACK_NSIS_MUI_UNIICON "${CMAKE_SOURCE_DIR}/res/LearnCPack.ico")
+# License ico
+set (CPACK_PACKAGE_ICO "${CMAKE_SOURCE_DIR}/res/LearnCPack.bmp")
+# License text
+set (CPCK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/res/Copyright.txt")
+# add/remove programs icon using an installed executat
+set (CPACK_NSIS_INSTALLED_ICON_NAME "${CMAKE_SOURCE_DIR}/bin/LearnCPack.exe")
+
 include(CPack)
