@@ -30,3 +30,6 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} ${EXTRA_LIBS})
+
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
+include(CPack)
